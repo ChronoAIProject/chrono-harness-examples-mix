@@ -497,6 +497,7 @@
     "test:labels-tests": {
       "operations": [
         "typecheck.labels",
+        "typecheck.labels-tests",
         "test.invoice",
         "test.labels"
       ],
