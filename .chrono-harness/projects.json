@@ -68,8 +68,7 @@
             "--module",
             "nodenext",
             "--allowImportingTsExtensions",
-            "client/view/label.mts",
-            "checks/ui/contract.mts"
+            "client/view/label.mts"
           ]
         }
       }
@@ -93,6 +92,21 @@
           "argv": [
             "--experimental-strip-types",
             "checks/ui/invoice.mjs"
+          ]
+        },
+        "check": {
+          "operation": "typecheck.labels-tests",
+          "tool": "node",
+          "argv": [
+            ".chrono-harness/cache/sdk/typescript/package/lib/tsc.js",
+            "--strict",
+            "--noEmit",
+            "--target",
+            "es2022",
+            "--module",
+            "nodenext",
+            "--allowImportingTsExtensions",
+            "checks/ui/contract.mts"
           ]
         }
       }
