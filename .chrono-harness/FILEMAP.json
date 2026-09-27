@@ -1,0 +1,523 @@
+{
+  "schema_version": 2,
+  "status": "active",
+  "files": [
+    {
+      "path": "backend/calc/go.mod",
+      "owner": "rates",
+      "surface": "product",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:rates"
+        }
+      ]
+    },
+    {
+      "path": "backend/calc/rate.go",
+      "owner": "rates",
+      "surface": "product",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:rates"
+        }
+      ]
+    },
+    {
+      "path": "checks/go-contract/go.mod",
+      "owner": "rates-tests",
+      "surface": "test",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:rates-tests"
+        }
+      ]
+    },
+    {
+      "path": "checks/go-contract/contract_test.go",
+      "owner": "rates-tests",
+      "surface": "test",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:rates-tests"
+        }
+      ]
+    },
+    {
+      "path": "client/view/label.mts",
+      "owner": "labels",
+      "surface": "product",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:labels"
+        }
+      ]
+    },
+    {
+      "path": "checks/ui/contract.mts",
+      "owner": "labels-tests",
+      "surface": "test",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:labels-tests"
+        }
+      ]
+    },
+    {
+      "path": "checks/ui/invoice.mjs",
+      "owner": "labels-tests",
+      "surface": "test",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:labels-tests"
+        }
+      ]
+    },
+    {
+      "path": "contracts/invoice.json",
+      "owner": "repository",
+      "surface": "product",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "project:rates"
+        },
+        {
+          "kind": "runtime-input",
+          "to": "project:labels"
+        }
+      ]
+    },
+    {
+      "path": "jobs/normalize.py",
+      "owner": "normalize",
+      "surface": "product",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "script:normalize"
+        }
+      ]
+    },
+    {
+      "path": "checks/scripts/normalize_test.py",
+      "owner": "normalize-tests",
+      "surface": "test",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "runtime-input",
+          "to": "script:normalize-tests"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "owner": "repository",
+      "surface": "instruction-policy",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "owner": "repository",
+      "surface": "instruction-policy",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ],
+      "symlink": "CLAUDE.md"
+    },
+    {
+      "path": ".chrono-harness/instructions/catalog.json",
+      "owner": "repository",
+      "surface": "instruction-policy",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/instructions/manifest.json",
+      "owner": "repository",
+      "surface": "instruction-policy",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/instructions/host-context.md",
+      "owner": "repository",
+      "surface": "instruction-policy",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".gitignore",
+      "owner": "repository",
+      "surface": "membership",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/bootstrap.json",
+      "owner": "repository",
+      "surface": "membership",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/distribution/chrono-harness.tar.gz",
+      "owner": "repository",
+      "surface": "membership",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/projects.json",
+      "owner": "repository",
+      "surface": "membership",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/FILEMAP.json",
+      "owner": "repository",
+      "surface": "membership",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/ci/check.json",
+      "owner": "repository",
+      "surface": "membership",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/bootstrap.py",
+      "owner": "bootstrap",
+      "surface": "judge-implementation",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/bootstrap_test.py",
+      "owner": "bootstrap-tests",
+      "surface": "test",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".chrono-harness/ci/github.json",
+      "owner": "repository",
+      "surface": "judge-policy",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": ".github/workflows/chrono-ci.yml",
+      "owner": "repository",
+      "surface": "judge-policy",
+      "cost": "unmeasured",
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "owner": "repository",
+      "surface": "documentation",
+      "cost": "unmeasured",
+      "edges": []
+    },
+    {
+      "path": ".chrono-harness/distribution/README.md",
+      "owner": "repository",
+      "surface": "documentation",
+      "cost": "unmeasured",
+      "edges": []
+    }
+  ],
+  "project_edges": [
+    {
+      "from": "project:rates",
+      "kind": "test-execution",
+      "to": "test:rates-tests"
+    },
+    {
+      "from": "project:rates-tests",
+      "kind": "test-execution",
+      "to": "test:rates-tests"
+    },
+    {
+      "from": "project:rates",
+      "kind": "compile",
+      "to": "project:rates-tests"
+    },
+    {
+      "from": "project:labels",
+      "kind": "test-execution",
+      "to": "test:labels-tests"
+    },
+    {
+      "from": "project:labels-tests",
+      "kind": "test-execution",
+      "to": "test:labels-tests"
+    },
+    {
+      "from": "project:labels",
+      "kind": "compile",
+      "to": "project:labels-tests"
+    },
+    {
+      "from": "script:normalize",
+      "kind": "test-execution",
+      "to": "test:normalize-tests"
+    },
+    {
+      "from": "script:normalize-tests",
+      "kind": "test-execution",
+      "to": "test:normalize-tests"
+    },
+    {
+      "from": "script:bootstrap",
+      "kind": "test-execution",
+      "to": "test:bootstrap-tests"
+    },
+    {
+      "from": "script:bootstrap-tests",
+      "kind": "test-execution",
+      "to": "test:bootstrap-tests"
+    }
+  ],
+  "cost_models": {
+    "unmeasured": {
+      "cpu_ms": null,
+      "wall_ms": null,
+      "peak_rss_bytes": null,
+      "io_bytes": null,
+      "basis": "not measured"
+    }
+  },
+  "test_costs": [
+    {
+      "test": "rates-tests",
+      "cost": "unmeasured"
+    },
+    {
+      "test": "labels-tests",
+      "cost": "unmeasured"
+    },
+    {
+      "test": "normalize-tests",
+      "cost": "unmeasured"
+    },
+    {
+      "test": "bootstrap-tests",
+      "cost": "unmeasured"
+    }
+  ],
+  "execution_plans": {
+    "test:rates-tests": {
+      "operations": [
+        "build.rates",
+        "test.rates"
+      ],
+      "timeout_seconds": 120,
+      "output_limit_bytes": 1048576
+    },
+    "test:labels-tests": {
+      "operations": [
+        "typecheck.labels",
+        "test.invoice",
+        "test.labels"
+      ],
+      "timeout_seconds": 120,
+      "output_limit_bytes": 1048576
+    },
+    "test:normalize-tests": {
+      "operations": [
+        "check.normalize",
+        "test.normalize"
+      ],
+      "timeout_seconds": 30,
+      "output_limit_bytes": 1048576
+    },
+    "test:bootstrap-tests": {
+      "operations": [
+        "ci.verify",
+        "test.bootstrap"
+      ],
+      "timeout_seconds": 60,
+      "output_limit_bytes": 1048576
+    }
+  }
+}

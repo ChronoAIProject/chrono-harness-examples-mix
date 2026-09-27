@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "status": "active",
+  "owners": [
+    "repository",
+    "bootstrap",
+    "bootstrap-tests",
+    "rates",
+    "rates-tests",
+    "labels",
+    "labels-tests",
+    "normalize",
+    "normalize-tests"
+  ],
+  "projects": [
+    {
+      "id": "rates",
+      "kind": "production",
+      "test_project": "rates-tests",
+      "actions": {
+        "build": {
+          "operation": "build.rates",
+          "tool": "go",
+          "argv": [
+            "-C",
+            "backend/calc",
+            "build",
+            "-mod=readonly",
+            "."
+          ]
+        }
+      }
+    },
+    {
+      "id": "rates-tests",
+      "kind": "test",
+      "tests_for": "rates",
+      "actions": {
+        "execute": {
+          "operation": "test.rates",
+          "tool": "go",
+          "argv": [
+            "-C",
+            "checks/go-contract",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-v",
+            "."
+          ]
+        }
+      }
+    },
+    {
+      "id": "labels",
+      "kind": "production",
+      "test_project": "labels-tests",
+      "actions": {
+        "build": {
+          "operation": "typecheck.labels",
+          "tool": "node",
+          "argv": [
+            ".chrono-harness/cache/sdk/typescript/package/lib/tsc.js",
+            "--strict",
+            "--noEmit",
+            "--target",
+            "es2022",
+            "--module",
+            "nodenext",
+            "--allowImportingTsExtensions",
+            "client/view/label.mts",
+            "checks/ui/contract.mts"
+          ]
+        }
+      }
+    },
+    {
+      "id": "labels-tests",
+      "kind": "test",
+      "tests_for": "labels",
+      "actions": {
+        "execute": {
+          "operation": "test.labels",
+          "tool": "node",
+          "argv": [
+            "--experimental-strip-types",
+            "checks/ui/contract.mts"
+          ]
+        },
+        "invoice": {
+          "operation": "test.invoice",
+          "tool": "node",
+          "argv": [
+            "--experimental-strip-types",
+            "checks/ui/invoice.mjs"
+          ]
+        }
+      }
+    }
+  ],
+  "scripts": [
+    {
+      "id": "normalize",
+      "path": "jobs/normalize.py",
+      "test_script": "normalize-tests",
+      "actions": {
+        "check": {
+          "operation": "check.normalize",
+          "tool": "python3",
+          "argv": [
+            "-B",
+            "-c",
+            "import runpy; runpy.run_path(\"jobs/normalize.py\")"
+          ]
+        }
+      }
+    },
+    {
+      "id": "normalize-tests",
+      "path": "checks/scripts/normalize_test.py",
+      "tests_for": "normalize",
+      "actions": {
+        "execute": {
+          "operation": "test.normalize",
+          "tool": "python3",
+          "argv": [
+            "-B",
+            "checks/scripts/normalize_test.py"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bootstrap",
+      "path": ".chrono-harness/bootstrap.py",
+      "test_script": "bootstrap-tests",
+      "actions": {
+        "execute": {
+          "operation": "bootstrap",
+          "tool": "python3",
+          "argv": [
+            ".chrono-harness/bootstrap.py",
+            "."
+          ]
+        },
+        "check": {
+          "operation": "ci.verify",
+          "tool": "chrono-ci",
+          "argv": [
+            "verify",
+            "--host-root",
+            ".",
+            "--config",
+            ".chrono-harness/ci/github.json"
+          ]
+        },
+        "generate": {
+          "operation": "instructions.generate",
+          "tool": "chrono-instructions",
+          "argv": [
+            "generate",
+            "--host-root",
+            "."
+          ]
+        }
+      }
+    },
+    {
+      "id": "bootstrap-tests",
+      "path": ".chrono-harness/bootstrap_test.py",
+      "tests_for": "bootstrap",
+      "actions": {
+        "execute": {
+          "operation": "test.bootstrap",
+          "tool": "python3",
+          "argv": [
+            "-B",
+            ".chrono-harness/bootstrap_test.py"
+          ]
+        }
+      }
+    }
+  ]
+}
