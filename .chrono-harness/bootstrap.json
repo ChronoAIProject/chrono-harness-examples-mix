@@ -1,5 +1,5 @@
 {
-  "schema": "chrono-example-sdk/v1",
+  "schema": "chrono-example-sdk/v2",
   "downloads": [
     {
       "directory": ".chrono-harness/cache/sdk/go",
@@ -12,7 +12,8 @@
           "url": "https://go.dev/dl/go1.24.2.linux-amd64.tar.gz",
           "integrity": "sha256-68097bd680839cbc9d464a0edce4f7c333975e27a90246890e9f1078c7e702ad"
         }
-      }
+      },
+      "id": "go"
     },
     {
       "directory": ".chrono-harness/cache/sdk/node",
@@ -37,7 +38,8 @@
             ]
           ]
         }
-      }
+      },
+      "id": "node"
     },
     {
       "directory": ".chrono-harness/cache/sdk/typescript",
@@ -46,7 +48,8 @@
           "url": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
           "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="
         }
-      }
+      },
+      "id": "typescript"
     }
   ],
   "probes": {
@@ -67,5 +70,59 @@
       ".chrono-harness/cache/sdk/typescript/package/lib/tsc.js",
       "--version"
     ]
+  },
+  "default_profile": "all",
+  "profiles": {
+    "all": {
+      "downloads": [
+        "go",
+        "node",
+        "typescript"
+      ],
+      "probes": [
+        "harness",
+        "go",
+        "node",
+        "typescript"
+      ]
+    },
+    "harness": {
+      "downloads": [],
+      "probes": [
+        "harness"
+      ]
+    },
+    "collection": {
+      "downloads": [],
+      "probes": [
+        "harness"
+      ]
+    },
+    "rates": {
+      "downloads": [
+        "go"
+      ],
+      "probes": [
+        "harness",
+        "go"
+      ]
+    },
+    "labels": {
+      "downloads": [
+        "node",
+        "typescript"
+      ],
+      "probes": [
+        "harness",
+        "node",
+        "typescript"
+      ]
+    },
+    "normalize": {
+      "downloads": [],
+      "probes": [
+        "harness"
+      ]
+    }
   }
 }
