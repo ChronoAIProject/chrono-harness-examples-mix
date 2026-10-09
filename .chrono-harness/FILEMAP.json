@@ -427,7 +427,24 @@
       "owner": "repository",
       "surface": "judge-policy",
       "cost": "unmeasured",
-      "edges": []
+      "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:bootstrap-tests"
+        }
+      ]
     },
     {
       "path": ".chrono-harness/judges.json",
@@ -448,14 +465,19 @@
       "owner": "repository",
       "surface": "judge-policy",
       "cost": "unmeasured",
-      "edges": []
-    },
-    {
-      "path": ".github/workflows/chrono-ci-rates.yml",
-      "owner": "repository",
-      "surface": "judge-policy",
-      "cost": "unmeasured",
       "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
         {
           "kind": "test-execution",
           "to": "test:bootstrap-tests"
@@ -463,11 +485,23 @@
       ]
     },
     {
-      "path": ".github/workflows/chrono-ci-labels.yml",
+      "path": ".chrono-harness/git/macos.json",
       "owner": "repository",
       "surface": "judge-policy",
       "cost": "unmeasured",
       "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
         {
           "kind": "test-execution",
           "to": "test:bootstrap-tests"
@@ -475,11 +509,23 @@
       ]
     },
     {
-      "path": ".github/workflows/chrono-ci-normalize.yml",
+      "path": ".chrono-harness/git/linux.json",
       "owner": "repository",
       "surface": "judge-policy",
       "cost": "unmeasured",
       "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
         {
           "kind": "test-execution",
           "to": "test:bootstrap-tests"
@@ -487,11 +533,23 @@
       ]
     },
     {
-      "path": ".github/workflows/chrono-ci-harness.yml",
+      "path": ".chrono-harness/git/global.config",
       "owner": "repository",
       "surface": "judge-policy",
       "cost": "unmeasured",
       "edges": [
+        {
+          "kind": "test-execution",
+          "to": "test:rates-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:labels-tests"
+        },
+        {
+          "kind": "test-execution",
+          "to": "test:normalize-tests"
+        },
         {
           "kind": "test-execution",
           "to": "test:bootstrap-tests"

@@ -34,10 +34,9 @@
       ".chrono-harness/judges.json",
       ".chrono-harness/workflow.json",
       ".chrono-harness/worktree.json",
-      ".github/workflows/chrono-ci-rates.yml",
-      ".github/workflows/chrono-ci-labels.yml",
-      ".github/workflows/chrono-ci-normalize.yml",
-      ".github/workflows/chrono-ci-harness.yml"
+      ".chrono-harness/git/macos.json",
+      ".chrono-harness/git/linux.json",
+      ".chrono-harness/git/global.config"
     ],
     "adoption_base": null,
     "operation_timeout_seconds": 120,
@@ -74,6 +73,8 @@
         "report_path": ".chrono-harness/state/units/harness/check.json"
       }
     },
-    "shared_operations": {}
+    "shared_operations": {},
+    "registration_config": ".chrono-harness/config.json",
+    "facts_config": ".chrono-harness/config.json"
   }
 }
