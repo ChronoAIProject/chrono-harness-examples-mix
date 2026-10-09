@@ -75,7 +75,7 @@
       ]
     },
     {
-      "path": "checks/ui/invoice.mjs",
+      "path": "checks/ui/invoice.mts",
       "owner": "labels-tests",
       "surface": "test",
       "cost": "unmeasured",

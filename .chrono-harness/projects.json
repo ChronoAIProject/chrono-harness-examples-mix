@@ -91,7 +91,7 @@
           "tool": "node",
           "argv": [
             "--experimental-strip-types",
-            "checks/ui/invoice.mjs"
+            "checks/ui/invoice.mts"
           ]
         },
         "check": {
@@ -106,7 +106,9 @@
             "--module",
             "nodenext",
             "--allowImportingTsExtensions",
-            "checks/ui/contract.mts"
+            "checks/ui/contract.mts",
+            "checks/ui/invoice.mts",
+            "--resolveJsonModule"
           ]
         }
       }
