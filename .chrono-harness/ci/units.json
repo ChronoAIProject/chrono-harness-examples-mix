@@ -1,16 +1,16 @@
 {
   "schema": "chrono-github-units/v1",
   "collection": {
-    "schema": "chrono-github-ci/v1",
+    "schema": "chrono-github-ci/v4",
     "workflow_path": ".github/workflows/chrono-ci.yml",
     "name": "chrono / collection",
     "runs_on": "ubuntu-24.04",
     "push_branches": [
-      "dev",
-      "integration/**"
+      "dev"
     ],
     "pull_request_branches": [
-      "dev"
+      "dev",
+      "integration/**"
     ],
     "branch_creation_base_ref": "refs/heads/dev",
     "checkout_action": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
@@ -27,17 +27,12 @@
     "generator": ".chrono-harness/bin/chrono-ci",
     "check_config": ".chrono-harness/ci/check.json",
     "context_path": ".chrono-harness/state/collection/context.json",
-    "artifact_directory": ".chrono-harness/state/",
-    "push_baselines": [
-      {
-        "ref_prefix": "refs/heads/integration/",
-        "base_ref": "refs/heads/dev"
-      }
-    ]
+    "artifact_directory": ".chrono-harness/state/collection/",
+    "include_hidden_files": true,
+    "facts_config": ".chrono-harness/config.json"
   },
   "units": {
     "rates": {
-      "workflow_path": ".github/workflows/chrono-ci-rates.yml",
       "name": "chrono / rates",
       "runs_on": "ubuntu-24.04",
       "timeout_minutes": 30,
@@ -49,10 +44,9 @@
         "rates"
       ],
       "context_path": ".chrono-harness/state/units/rates/context.json",
-      "artifact_directory": ".chrono-harness/state/"
+      "artifact_directory": ".chrono-harness/state/units/rates/"
     },
     "labels": {
-      "workflow_path": ".github/workflows/chrono-ci-labels.yml",
       "name": "chrono / labels",
       "runs_on": "ubuntu-24.04",
       "timeout_minutes": 30,
@@ -64,10 +58,9 @@
         "labels"
       ],
       "context_path": ".chrono-harness/state/units/labels/context.json",
-      "artifact_directory": ".chrono-harness/state/"
+      "artifact_directory": ".chrono-harness/state/units/labels/"
     },
     "normalize": {
-      "workflow_path": ".github/workflows/chrono-ci-normalize.yml",
       "name": "chrono / normalize",
       "runs_on": "ubuntu-24.04",
       "timeout_minutes": 30,
@@ -79,10 +72,9 @@
         "normalize"
       ],
       "context_path": ".chrono-harness/state/units/normalize/context.json",
-      "artifact_directory": ".chrono-harness/state/"
+      "artifact_directory": ".chrono-harness/state/units/normalize/"
     },
     "harness": {
-      "workflow_path": ".github/workflows/chrono-ci-harness.yml",
       "name": "chrono / harness",
       "runs_on": "ubuntu-24.04",
       "timeout_minutes": 30,
@@ -94,7 +86,7 @@
         "harness"
       ],
       "context_path": ".chrono-harness/state/units/harness/context.json",
-      "artifact_directory": ".chrono-harness/state/"
+      "artifact_directory": ".chrono-harness/state/units/harness/"
     }
   },
   "gather": {
@@ -110,10 +102,26 @@
     "environment": {},
     "timeout_seconds": 60,
     "output_limit_bytes": 8388608,
-    "wait_seconds": 1800,
-    "poll_seconds": 30,
     "manifest_path": ".chrono-harness/state/collection/manifest.json",
     "download_directory": ".chrono-harness/state/collection/downloads/",
     "report_path": ".chrono-harness/state/collection/gather.json"
+  },
+  "job_gating": {
+    "schema": "chrono-job-gating/v1",
+    "detector": {
+      "runs_on": "ubuntu-24.04",
+      "timeout_minutes": 45,
+      "bootstrap": [
+        "python3",
+        ".chrono-harness/bootstrap.py",
+        ".",
+        "--profile",
+        "collection"
+      ],
+      "sparse_checkout": [
+        ".chrono-harness/",
+        ".github/workflows/chrono-ci.yml"
+      ]
+    }
   }
 }
