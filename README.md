@@ -43,6 +43,8 @@ python3 .chrono-harness/bootstrap.py . --profile collection
 - `CLAUDE.md` 由原子规则生成；`AGENTS.md` 是其相对符号链接。修改指令源后运行 `.chrono-harness/bin/chrono-instructions generate --host-root .`。
 - CI 修改入口是 `.chrono-harness/ci/units.json`；运行 `.chrono-harness/bin/chrono-ci generate --host-root . --config .chrono-harness/ci/units.json`。受管工作流由 `chrono-ci verify` 检查。PR 覆盖 dev 与 integration/**，检查固定合并候选；dev push 以事件 before/after 验真实落地变化。
 
+Go、Node.js 和 TypeScript 的发布地址与摘要分别登记在 `.chrono-harness/sdk/` 下。仅修改 Go 声明时，CI 选择 rates 单元并更新其 SDK 缓存键。仅修改 Node.js 或 TypeScript 声明时，CI 选择 labels 单元。宿主按 `bootstrap.json` 的 profile 读取实际使用的声明。
+
 ## 当前边界
 
 本仓运行现役 `chrono-ci-check/v3` scoped profile，验证实际命令、显式选测、干净快照和退出结果。它不冒充完整七判官治理，不证明工具链输入闭包完整或测试依赖无遗漏。该版本的通用 projects 判官已允许省略 manifest/lock/root 并接受任意显式 action；语言专属检查由可选适配器承载。本仓完整治理的接入仍未完成。
