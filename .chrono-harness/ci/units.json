@@ -143,6 +143,7 @@
           "paths": [
             ".chrono-harness/bin/"
           ],
+          "release_install_layout": true,
           "compatibility_files": [
             ".chrono-harness/distribution.json"
           ],
@@ -167,10 +168,11 @@
             ".chrono-harness/cache/downloads/"
           ],
           "compatibility_files": [
-            ".chrono-harness/bootstrap.json"
+            ".chrono-harness/sdk/go.json"
           ],
           "source_files": [
-            ".chrono-harness/bootstrap.py"
+            ".chrono-harness/bootstrap.py",
+            ".chrono-harness/bootstrap.json"
           ],
           "consumers": [
             "unit_rates"
@@ -185,10 +187,12 @@
             ".chrono-harness/cache/downloads/"
           ],
           "compatibility_files": [
-            ".chrono-harness/bootstrap.json"
+            ".chrono-harness/sdk/node.json",
+            ".chrono-harness/sdk/typescript.json"
           ],
           "source_files": [
-            ".chrono-harness/bootstrap.py"
+            ".chrono-harness/bootstrap.py",
+            ".chrono-harness/bootstrap.json"
           ],
           "consumers": [
             "unit_labels"
